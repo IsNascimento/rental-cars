@@ -55,7 +55,7 @@ Regras de negócio existentes:
 
 Seu trabalho:
 
-- Crie uma nova branch a partir da Master, desenvolva as funcionalidades a seguir e submita um pull request no projeto.
+- Crie uma nova branch com seu nome a partir da Master, desenvolva as funcionalidades a seguir e submita um pull request no projeto.
 - Desenvolva um processo de leitura de arquivo que deve ser disparado ao executar a classe Main depois de gerar o relatório da frota.
     - Esse processo deve ler o arquivo RentReport.rtn que nada mais é do que um arquivo de texto posivional.
     - Cada linha desse arquivo RentReport.rtn possui 20 caracteres e contém os dados do aluguel de um veículo.
