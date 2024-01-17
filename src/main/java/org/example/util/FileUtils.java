@@ -7,11 +7,11 @@ import java.util.List;
 
 public class FileUtils {
 
-    public void writeFileIfNotExists(String fileName, List<String> lines) throws IOException {
+    public static void writeFile(String fileName, List<String> lines) throws IOException {
         var file = new File(fileName);
-        throwExceptionIfFileExists(file);
+        createDirectory(file.getParent()); // Verificar e criar o diretório se necessário
         file.createNewFile();
-        try (var writer = new FileWriter(file, true)) {
+        try (var writer = new FileWriter(file, false)) {
             for (String line : lines) {
                 writer.write(line);
                 writer.write(System.lineSeparator());
@@ -19,9 +19,10 @@ public class FileUtils {
         }
     }
 
-    private void throwExceptionIfFileExists(File file) throws IOException {
-        if (file.exists()) {
-            throw new IOException("O arquivo " + file.getAbsolutePath() + " já existe.");
+    public static void createDirectory(String directoryPath) {
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            directory.mkdirs();
         }
     }
 }

@@ -32,4 +32,14 @@ public class CarRepository extends AbstractRepository {
         String sql = "SELECT * FROM CARRO WHERE ID = ?";
         return carMapper.fromResultMap(executeSelect(sql, List.of(id.toString()))).stream().findAny().orElse(null);
     }
+    
+    public Car buscar(Integer id) throws SQLException {
+        String sql = "SELECT * FROM CARRO WHERE ID = ?";
+        List<Car> cars = carMapper.fromResultMap(executeSelect(sql, List.of(id.toString())));
+        if (cars.isEmpty()) {
+            return null;
+        }
+        return cars.get(0);
+    }
+    
 }

@@ -6,6 +6,7 @@ public class Rent {
 
     private Long id;
     private Car carro;
+    private Integer clienteId;
     private Client cliente;
     private LocalDate dataAluguel;
     private LocalDate dataDevolucao;
@@ -67,4 +68,12 @@ public class Rent {
     public void setPago(boolean pago) {
         this.pago = pago;
     }
+
+	public Integer getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(Integer clienteId) {
+		this.clienteId = clienteId;
+	}
 }
