@@ -25,13 +25,13 @@ public class CarReportService {
     private final CarRepository carRepository = CarRepository.getInstance();
     private final Logger logger = Logger.getInstance();
 
-    private CarReportService() {
+    public CarReportService() {
     }
 
-    protected void generateCarReport(String generationDate) {
+    public void generateCarReport(String generationDate) {
         try {
             var layout = new CarReportLayout();
-            new FileUtils().writeFileIfNotExists(layout.getCarReportFileName(generationDate), generateLines(generationDate, carRepository.listar(), layout));
+            new FileUtils().writeFile(layout.getCarReportFileName(generationDate), generateLines(generationDate, carRepository.listar(), layout));
         } catch (SQLException e) {
             logger.error("Erro ao buscar dados para gerar relatório de carros.");
             logger.error(e);

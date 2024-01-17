@@ -20,7 +20,7 @@ public class CarReportLayout extends AbstractLayoutGenerator {
     }
 
     public List<String> createHeader(String generationDate) {
-        return List.of(getFirstHeaderLine(generationDate),
+        return List.of("Data: " + generationDate,
                 generateDashLine(LINE_SIZE));
     }
 
@@ -54,5 +54,4 @@ public class CarReportLayout extends AbstractLayoutGenerator {
     private boolean shouldChangeCar(Car car) {
         return (LocalDate.now().getYear() - 5) <= Integer.parseInt(car.getAno()) || 300000 > car.getKm();
     }
-
 }
